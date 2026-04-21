@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+:root {
+  /* Zestia Gold/Dark design tokens */
+  --background: #fdfaf4;
+  --foreground: #18140d;
+
+  /* Gold palette */
+  --gold: #c9a84c;
+  --gold-light: #e2c46b;
+  --gold-dark: #9a7a2a;
+  --gold-pale: #f7f0dc;
+  --gold-ghost: #fdf9ee;
+
+  /* Neutrals */
+  --cream: #fdfaf4;
+  --white: #ffffff;
+  --dark: #18140d;
+  --dark-mid: #2c2416;
+  --slate: #6b6355;
+  --slate-light: #9c9280;
+  --border: #ede4cc;
+  --border-light: #f5efe0;
+
+  /* Semantic */
+  --red: #c0392b;
+  --red-light: #fdeceb;
+  --green: #1a7a4a;
+  --green-light: #e8f7ee;
+  --blue: #1a4a8a;
+  --blue-light: #e8eef7;
+  --amber: #b45309;
+  --amber-light: #fef3c7;
+  --purple: #5b2d8e;
+  --purple-light: #f0e8ff;
+
+  /* Typography */
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "DM Sans", sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-gold-pale: var(--gold-pale);
+  --color-gold-ghost: var(--gold-ghost);
+  --color-cream: var(--cream);
+  --color-dark: var(--dark);
+  --color-dark-mid: var(--dark-mid);
+  --color-slate: var(--slate);
+  --color-slate-light: var(--slate-light);
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-green: var(--green);
+  --color-red: var(--red);
+  --color-amber: var(--amber);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes waveAnimation {
+
+    0%,
+    100% {
+      height: 8px;
+    }
+
+    50% {
+      height: 24px;
+    }
+  }
+
+  @keyframes pulse {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  --animate-spin: spin 0.75s linear infinite;
+  --animate-fade-slide-in: fadeSlideIn 0.3s ease-out;
+  --animate-wave: waveAnimation 1s ease-in-out infinite;
+  --animate-pulse-custom: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+button {
+  transition: opacity 0.15s;
+}
+
+button:hover {
+  opacity: 0.84;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 0;
+}
+
+/* Admin table hover */
+tr:hover td {
+  background: var(--gold-ghost);
+}
+
+/* Reuse existing utility classes */
+.message-bubble {
+  animation: var(--animate-fade-slide-in);
+}
+
+.voice-active .waveform-bar {
+  animation: var(--animate-wave);
+}
+
+.alerts-panel {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+.alerts-panel.open {
+  transform: translateY(0);
+}
+
+.pulse-dot {
+  animation: var(--animate-pulse-custom);
+}
+
+.map-marker {
+  transition: transform 0.2s ease;
+}
+
+.map-marker:hover {
+  transform: scale(1.1);
+}
+
+.input-container {
+  transition: all 0.3s ease;
+}
+
+.listening-state {
+  background: linear-gradient(135deg,
+      var(--purple-light) 0%,
+      var(--blue-light) 100%);
+}
+
+@media (max-width: 900px) {
+  .login-root {
+    grid-template-columns: 1fr !important;
+  }
+
+  .login-left {
+    min-height: 330px;
+  }
+
+  .login-logo {
+    top: 28px !important;
+    left: 24px !important;
+    width: 124px !important;
+    height: auto !important;
+  }
+
+  .login-heading-wrap {
+    top: 128px !important;
+    left: 24px !important;
+  }
+
+  .login-leaf {
+    right: -120px !important;
+    bottom: -130px !important;
+    width: 520px !important;
+    height: auto !important;
+  }
+
+  .login-right {
+    padding: 32px 20px;
+  }
+}
