@@ -58,3 +58,11 @@ export const formatDate = (dateString?: string | null) => {
 
   return `${day}-${month}-${year}`;
 };
+
+
+export const formatNumber = (num: number) =>
+  new Intl.NumberFormat('en-IN').format(num);
+
+export const formatLabel = (text: string) => {
+  return text.replace(/-/g, ' ');
+};

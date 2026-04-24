@@ -1,8 +1,12 @@
-
 import SectionNotifications from '@/components/pages/notifications-activity/page';
-import { getNotificationsData } from '@/utils/mock-data';
+import { getAdminNotificationStatsAction } from '@/utils/graphql/notification/action';
 
-export default async function NotificationsActivityPage() {
-  const data = await getNotificationsData();
-  return <SectionNotifications data={data} />;
+const NotificationsActivityPage = async () => {
+
+  const res = await getAdminNotificationStatsAction();
+  const notificationData = res?.adminGetNotificationStats || null;
+
+  return <SectionNotifications notificationData={notificationData} />;
 }
+
+export default NotificationsActivityPage;

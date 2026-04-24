@@ -1,4 +1,4 @@
-import SectionExecutiveSnapshot from '@/components/pages/executive-snapshot/page';
+import SectionExecutiveSnapshot from '@/components/pages/executive-snapshot';
 import { getExecutiveSnapshotData } from '@/utils/mock-data';
 import { getAdminUsersStatsAction } from '@/utils/graphql/users/action';
 

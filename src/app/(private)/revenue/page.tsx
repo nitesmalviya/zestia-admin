@@ -1,11 +1,12 @@
 
-import SectionRevenue from '@/components/pages/revenue/page';
+import SectionRevenue from '@/components/pages/revenue';
 import { getAdminRevenueStatsAction } from '@/utils/graphql/revenue/action';
-import { getRevenueData } from '@/utils/mock-data';
 
-export default async function RevenuePage() {
-  const data = await getRevenueData();
+const RevenuePage = async () => {
 
   const revenueData = await getAdminRevenueStatsAction();
-  return <SectionRevenue data={data} revenueData={revenueData?.adminGetRevenueStats || {}} />;
+  return <SectionRevenue revenueData={revenueData?.adminGetRevenueStats || {}} />;
 }
+
+
+export default RevenuePage;

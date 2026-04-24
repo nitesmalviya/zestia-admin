@@ -6,13 +6,8 @@ import { RevenueStats } from '@/types/revenue';
 
 interface revenueDataProps {
   revenueData: RevenueStats;
-  data: any;
 }
-export default function SectionRevenue({ data, revenueData }: revenueDataProps) {
-
-  console.log(revenueData, "Revenue Data");
-  const { kpis = {}, funnel: apiFunnel = [] } = data || {};
-
+export default function SectionRevenue({ revenueData }: revenueDataProps) {
   const funnelRaw = (() => {
     try {
       return revenueData?.trialFunnel

@@ -1,6 +1,5 @@
-import SectionUsers from '@/components/pages/users/page';
+import Users from '@/components/pages/users/index';
 import { getAdminUsersListAction, getUsersStats } from '@/utils/graphql/users/action';
-import { getUsersData } from '@/utils/mock-data';
 
 export default async function UsersPage() {
 
@@ -14,8 +13,7 @@ export default async function UsersPage() {
   const userListData = res?.adminListUsers;
 
 
-  return <SectionUsers
-
+  return <Users
     userListData={userListData}
     userStatsData={userStatsData} />;
 }

@@ -1,7 +1,12 @@
 import SectionOnboarding from '@/components/pages/onboarding/page';
-import { getOnboardingData } from '@/utils/mock-data';
+import { getAdminOnboardingStatsAction } from '@/utils/graphql/onboarding/action';
 
-export default async function OnboardingPage() {
-  const data = await getOnboardingData();
-  return <SectionOnboarding data={data} />;
+const OnboardingPage = async () => {
+
+  const res = await getAdminOnboardingStatsAction();
+  const onboardingData = res?.adminGetOnboardingStats || null;
+
+  return <SectionOnboarding onboardingData={onboardingData} />;
 }
+
+export default OnboardingPage;
