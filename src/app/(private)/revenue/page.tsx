@@ -1,5 +1,5 @@
 
-import SectionRevenue from '@/components/pages/revenue';
+import SectionRevenue from '@/components/pages/revenue/index';
 import { getAdminRevenueStatsAction } from '@/utils/graphql/revenue/action';
 
 const RevenuePage = async () => {

@@ -1,6 +1,6 @@
 'use server';
 
-import SectionUserLookup from '@/components/pages/user-lookup/page';
+import SectionUserLookup from '@/components/pages/user-lookup/index';
 import { getUserLookupData } from '@/utils/mock-data';
 
 export default async function UserLookupPage() {
