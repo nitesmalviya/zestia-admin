@@ -1,5 +1,5 @@
-import { Panel, PanelHeader } from "../dashboard/page";
-import { KeyValueRow } from "../dashboard/page";
+import { Panel, PanelHeader } from "../dashboard";
+import { KeyValueRow } from "../dashboard";
 import { AllReflectionsResponse } from "@/types/exercise-lvc";
 
 

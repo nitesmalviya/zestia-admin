@@ -1,5 +1,5 @@
-import { Panel, PanelHeader } from "../dashboard/page";
-import { KeyValueRow } from "../dashboard/page";
+import { Panel, PanelHeader } from "../dashboard";
+import { KeyValueRow } from "../dashboard";
 import { AllExerciseResponse } from "@/types/exercise-lvc";
 
 const EngagementHealth = ({ exerciseData }: { exerciseData: AllExerciseResponse | null }) => {

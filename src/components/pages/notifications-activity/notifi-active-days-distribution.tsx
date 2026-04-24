@@ -1,5 +1,5 @@
 import { AllNotificationResponse } from "@/types/notification";
-import { KeyValueRow, Panel, PanelHeader } from "../dashboard/page";
+import { KeyValueRow, Panel, PanelHeader } from "../dashboard";
 import { formatNumber } from "@/utils/constants";
 
 interface notificationDataProps {

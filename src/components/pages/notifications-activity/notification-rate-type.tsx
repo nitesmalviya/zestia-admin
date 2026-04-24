@@ -1,5 +1,5 @@
 import { AllNotificationResponse } from "@/types/notification";
-import { Panel, PanelHeader, ProgressRow } from "../dashboard/page";
+import { Panel, PanelHeader, ProgressRow } from "../dashboard";
 
 interface NotificationDataProps {
     notificationData: AllNotificationResponse;

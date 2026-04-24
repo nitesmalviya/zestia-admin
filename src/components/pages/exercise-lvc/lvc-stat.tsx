@@ -1,5 +1,5 @@
 import { StatCardIcon12, StatCardIcon3 } from "@/components/icons/stat-card-icons";
-import { StatCard } from "../dashboard/page";
+import { StatCard } from "../dashboard";
 import { AllLVCResponse } from "@/types/exercise-lvc";
 
 const LvcStat = ({ lvcData }: { lvcData: AllLVCResponse | null }) => {

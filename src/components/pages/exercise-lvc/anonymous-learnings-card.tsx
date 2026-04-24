@@ -1,5 +1,5 @@
 import { AllReflectionsResponse } from "@/types/exercise-lvc";
-import { Panel, PanelHeader } from "../dashboard/page";
+import { Panel, PanelHeader } from "../dashboard";
 
 const AnonymousLearnings = ({ reflectionsData }: { reflectionsData: AllReflectionsResponse | null }) => {
 

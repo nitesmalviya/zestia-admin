@@ -1,6 +1,6 @@
 'use client';
 
-import { Panel, PanelHeader, ProgressRow, StatCard } from '@/components/pages/dashboard/page';
+import { Panel, PanelHeader, ProgressRow, StatCard } from '@/components/pages/dashboard';
 import { StatCardIcon12, StatCardIcon3, StatCardIcon45, StatCardIcon6 } from '@/components/icons/stat-card-icons';
 import { RevenueStats } from '@/types/revenue';
 
@@ -8,6 +8,7 @@ interface revenueDataProps {
   revenueData: RevenueStats;
 }
 export default function SectionRevenue({ revenueData }: revenueDataProps) {
+
   const funnelRaw = (() => {
     try {
       return revenueData?.trialFunnel
@@ -68,9 +69,6 @@ export default function SectionRevenue({ revenueData }: revenueDataProps) {
       tone: 'gold', // or dynamic if needed
     })
   );
-
-
-
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>

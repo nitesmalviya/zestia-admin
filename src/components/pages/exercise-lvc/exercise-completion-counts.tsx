@@ -1,5 +1,5 @@
 import { formatLabel } from "@/utils/constants";
-import { Panel, PanelHeader, ProgressRow } from "../dashboard/page";
+import { Panel, PanelHeader, ProgressRow } from "../dashboard";
 import { AllExerciseResponse } from "@/types/exercise-lvc";
 
 const ExerciseCompletionCounts = ({ exerciseData }: { exerciseData: AllExerciseResponse | null }) => {

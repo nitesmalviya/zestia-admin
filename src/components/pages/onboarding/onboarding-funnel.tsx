@@ -1,5 +1,5 @@
 import { AllOnboardingResponse } from "@/types/onboarding";
-import { Panel, PanelHeader } from "../dashboard/page";
+import { Panel, PanelHeader } from "../dashboard";
 
 interface onboardingDataProps {
     onboardingData: AllOnboardingResponse;

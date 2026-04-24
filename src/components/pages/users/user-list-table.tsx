@@ -1,6 +1,6 @@
 import { AdminListUser } from "@/types/user";
 import { formatDate } from "@/utils/constants";
-import { Panel } from "../dashboard/page";
+import { Panel } from "../dashboard";
 
 interface UserListTableProps {
     userListData: {

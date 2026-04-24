@@ -1,6 +1,6 @@
 'use client';
 
-import { StatCard } from '@/components/pages/dashboard/page';
+import { StatCard } from '@/components/pages/dashboard';
 import { StatCardIcon12, StatCardIcon3, StatCardIcon45, StatCardIcon6 } from '@/components/icons/stat-card-icons';
 import { AdminListUser, AdminUserStats } from '@/types/user';
 import UserListTable from './user-list-table';

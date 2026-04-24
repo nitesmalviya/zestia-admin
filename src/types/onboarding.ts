@@ -13,10 +13,7 @@ export interface AllOnboardingResponse {
         avgCompletionTimeMinutes: number;
         dropOffRate: number;
         completedToActivePercent: number;
-
-        // API string deta hai → isliye string hi rakho
         onboardingFunnel: string;
-
         previousOnboardingStarted: number;
         previousOnboardingCompleted: number;
         previousCompletionRate: number;

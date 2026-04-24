@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Panel } from '@/components/pages/dashboard/page';
+import { Panel } from '@/components/pages/dashboard';
 import { toast } from 'react-toastify';
 import { UserRecord } from '@/types/user';
 

@@ -1,5 +1,5 @@
 import { AllNotificationResponse } from "@/types/notification";
-import { StatCard } from "../dashboard/page";
+import { StatCard } from "../dashboard";
 import { StatCardIcon12, StatCardIcon3 } from "@/components/icons/stat-card-icons";
 
 interface notificationDataProps {

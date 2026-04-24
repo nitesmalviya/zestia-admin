@@ -1,4 +1,4 @@
-import SectionOnboarding from '@/components/pages/onboarding/page';
+import SectionOnboarding from '@/components/pages/onboarding/index';
 import { getAdminOnboardingStatsAction } from '@/utils/graphql/onboarding/action';
 
 const OnboardingPage = async () => {

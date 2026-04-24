@@ -1,5 +1,5 @@
 import { AllOnboardingResponse } from "@/types/onboarding";
-import { StatCard } from "../dashboard/page";
+import { StatCard } from "../dashboard";
 import { StatCardIcon12, StatCardIcon3, StatCardIcon45, StatCardIcon6 } from "@/components/icons/stat-card-icons";
 
 interface onboardingDataProps {

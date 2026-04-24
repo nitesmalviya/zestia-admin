@@ -1,5 +1,5 @@
 import { AdminUserStats } from "@/types/user";
-import { KeyValueRow, Panel, PanelHeader } from "../dashboard/page";
+import { KeyValueRow, Panel, PanelHeader } from "../dashboard";
 
 interface userStatsDataProps {
     userStatsData: AdminUserStats;

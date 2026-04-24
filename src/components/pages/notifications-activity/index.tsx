@@ -9,7 +9,7 @@ interface SectionNotificationsProps {
   notificationData: AllNotificationResponse;
 }
 
-const SectionNotifications = ({ notificationData }: SectionNotificationsProps) => {
+const Notifications = ({ notificationData }: SectionNotificationsProps) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -25,4 +25,4 @@ const SectionNotifications = ({ notificationData }: SectionNotificationsProps) =
   );
 }
 
-export default SectionNotifications;
+export default Notifications;
