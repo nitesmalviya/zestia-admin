@@ -14,7 +14,6 @@ const Notifications = ({ notificationData }: SectionNotificationsProps) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       <NotificationStat notificationData={notificationData} />
-
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: 12 }}>
         <NotificationRateType notificationData={notificationData} />
         <NotifiActiveDaysDistribution notificationData={notificationData} />
