@@ -1,19 +1,13 @@
 import { AllNotificationResponse } from "@/types/notification";
 import { KeyValueRow, Panel, PanelHeader } from "../dashboard";
-import { formatNumber } from "@/utils/constants";
+import { safeParseJson } from "@/utils/parser/json";
+import { formatNumber } from "@/utils/format/number";
 
 interface notificationDataProps {
     notificationData: AllNotificationResponse;
 }
 
 const NotifiActiveDaysDistribution = ({ notificationData }: notificationDataProps) => {
-    const safeParse = <T,>(data: string | undefined, fallback: T): T => {
-        try {
-            return data ? JSON.parse(data) : fallback;
-        } catch {
-            return fallback;
-        }
-    };
 
     type ActiveDaysDistribution = {
         sevenDays: number;
@@ -22,7 +16,7 @@ const NotifiActiveDaysDistribution = ({ notificationData }: notificationDataProp
         zeroDays: number;
     };
 
-    const activeDaysRaw = safeParse<ActiveDaysDistribution>(
+    const activeDaysRaw = safeParseJson<ActiveDaysDistribution>(
         notificationData?.activeDaysDistribution,
         {
             sevenDays: 0,

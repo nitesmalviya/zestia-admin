@@ -1,5 +1,6 @@
 import { AdminUserStats } from "@/types/user";
 import { KeyValueRow, Panel, PanelHeader } from "../dashboard";
+import { safeParseJson } from "@/utils/parser/json";
 
 interface userStatsDataProps {
     userStatsData: AdminUserStats;
@@ -7,17 +8,7 @@ interface userStatsDataProps {
 
 const UserStatusBreakdown = ({ userStatsData }: userStatsDataProps) => {
 
-
-    const safeParse = <T,>(data: string | undefined, fallback: T): T => {
-        if (!data) return fallback;
-        try {
-            return JSON.parse(data);
-        } catch {
-            return fallback;
-        }
-    };
-
-    const statusRaw = safeParse<{
+    const statusRaw = safeParseJson<{
         free: number;
         trial: number;
         monthlyPaid: number;

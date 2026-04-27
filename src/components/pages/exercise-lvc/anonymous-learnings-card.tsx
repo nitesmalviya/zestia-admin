@@ -1,18 +1,10 @@
 import { AllReflectionsResponse } from "@/types/exercise-lvc";
 import { Panel, PanelHeader } from "../dashboard";
+import { safeParseJson } from "@/utils/parser/json";
 
 const AnonymousLearnings = ({ reflectionsData }: { reflectionsData: AllReflectionsResponse | null }) => {
 
-    const safeParse = <T,>(data: string | undefined, fallback: T): T => {
-        if (!data) return fallback;
-        try {
-            return JSON.parse(data);
-        } catch {
-            return fallback;
-        }
-    };
-
-    const reflectionRaw = safeParse<
+    const reflectionRaw = safeParseJson<
         { interventionId: string; learned: string; checkInAt: string }[]
     >(reflectionsData?.reflections, []);
 

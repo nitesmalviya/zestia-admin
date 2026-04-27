@@ -1,5 +1,6 @@
 import { AllNotificationResponse } from "@/types/notification";
 import { Panel, PanelHeader, ProgressRow } from "../dashboard";
+import { safeParseJson } from "@/utils/parser/json";
 
 interface NotificationDataProps {
     notificationData: AllNotificationResponse;
@@ -20,15 +21,7 @@ const NotificationRateType = ({ notificationData }: NotificationDataProps) => {
 
     };
 
-    const safeParse = <T,>(data: string | undefined, fallback: T): T => {
-        try {
-            return data ? JSON.parse(data) : fallback;
-        } catch {
-            return fallback;
-        }
-    };
-
-    const actionRateRaw = safeParse<ActionRateItem[]>(
+    const actionRateRaw = safeParseJson<ActionRateItem[]>(
         notificationData?.actionRateByType,
         []
     );

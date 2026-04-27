@@ -1,3 +1,4 @@
+import { safeParseJson } from "@/utils/parser/json";
 import { Panel, PanelHeader } from "../dashboard";
 import { KeyValueRow } from "../dashboard";
 import { AllReflectionsResponse } from "@/types/exercise-lvc";
@@ -5,17 +6,7 @@ import { AllReflectionsResponse } from "@/types/exercise-lvc";
 
 const ReflectionsCard = ({ reflectionsData }: { reflectionsData: AllReflectionsResponse | null }) => {
 
-    const safeParse = <T,>(reflectionsData: string | undefined, fallback: T): T => {
-        if (!reflectionsData) return fallback;
-
-        try {
-            return JSON.parse(reflectionsData);
-        } catch {
-            return fallback;
-        }
-    };
-
-    const reflectionRaw = safeParse<
+    const reflectionRaw = safeParseJson<
         { interventionId: string; total: number; saved: number }[]
     >(
         reflectionsData?.reflectionCountByExercise,

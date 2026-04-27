@@ -45,24 +45,6 @@ export const NAV: NavItem[] = [
 ];
 
 
-export const formatDate = (dateString?: string | null) => {
-  if (!dateString) return "-";
-
-  const date = new Date(dateString);
-
-  if (isNaN(date.getTime())) return "-"; // invalid date safety
-
-  const day = String(date.getDate()).padStart(2, "0");
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const year = date.getFullYear();
-
-  return `${day}-${month}-${year}`;
-};
-
-
-export const formatNumber = (num: number) =>
-  new Intl.NumberFormat('en-IN').format(num);
-
 export const formatLabel = (text: string) => {
   return text.replace(/-/g, ' ');
 };

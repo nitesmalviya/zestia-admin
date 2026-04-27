@@ -1,5 +1,6 @@
 import { AdminUserStats } from "@/types/user";
 import { Panel, PanelHeader } from "../dashboard";
+import { safeParseJson } from "@/utils/parser/json";
 
 interface userStatsDataProps {
     userStatsData: AdminUserStats;
@@ -8,16 +9,7 @@ interface userStatsDataProps {
 
 const PlatformSplit = ({ userStatsData }: userStatsDataProps) => {
 
-    const safeParse = <T,>(data: string | undefined, fallback: T): T => {
-        if (!data) return fallback;
-        try {
-            return JSON.parse(data);
-        } catch {
-            return fallback;
-        }
-    };
-
-    const platformSplit = safeParse<{
+    const platformSplit = safeParseJson<{
         iOS: number;
         Android: number;
         Web: number;

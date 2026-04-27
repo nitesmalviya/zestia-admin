@@ -1,19 +1,11 @@
 import { formatLabel } from "@/utils/constants";
+import { safeParseJson } from "@/utils/parser/json";
 import { Panel, PanelHeader, ProgressRow } from "../dashboard";
 import { AllExerciseResponse } from "@/types/exercise-lvc";
 
 const ExerciseCompletionCounts = ({ exerciseData }: { exerciseData: AllExerciseResponse | null }) => {
 
-    const safeParse = <T,>(data: string | undefined, fallback: T): T => {
-        if (!data) return fallback;
-        try {
-            return JSON.parse(data);
-        } catch {
-            return fallback;
-        }
-    };
-
-    const completionRaw = safeParse<Record<string, number>>(
+    const completionRaw = safeParseJson<Record<string, number>>(
         exerciseData?.completionCountByExercise,
         {}
     );
@@ -35,7 +27,7 @@ const ExerciseCompletionCounts = ({ exerciseData }: { exerciseData: AllExerciseR
         const progress = Math.round((item.count / max) * 100);
 
         return {
-            label: item.label.replace(/^\d+-/, ''), // remove "1-" prefix
+            label: item.label.replace(/^\d+-/, ''),
             value: item.count,
             progress,
             tone: getTone(progress),

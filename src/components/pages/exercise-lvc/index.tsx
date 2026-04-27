@@ -1,5 +1,3 @@
-'use client';
-
 import { AllExerciseResponse, AllLVCResponse, AllReflectionsResponse } from '@/types/exercise-lvc';
 import LvcStat from './lvc-stat';
 import ExerciseCompletionCounts from './exercise-completion-counts';

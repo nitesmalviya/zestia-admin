@@ -4,15 +4,6 @@ import { AllExerciseResponse } from "@/types/exercise-lvc";
 
 const EngagementHealth = ({ exerciseData }: { exerciseData: AllExerciseResponse | null }) => {
 
-    const safeParse = <T,>(data: string | undefined, fallback: T): T => {
-        if (!data) return fallback;
-        try {
-            return JSON.parse(data);
-        } catch {
-            return fallback;
-        }
-    };
-
     const avgDays = (exerciseData?.avgDaysBetweenExercises * 7).toFixed(1);
     const engagementHealth = [
         {

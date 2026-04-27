@@ -1,5 +1,6 @@
 import { AdminUserStats } from "@/types/user";
 import { Panel, PanelHeader } from "../dashboard";
+import { safeParseJson } from "@/utils/parser/json";
 interface userStatsDataProps {
     userStatsData: AdminUserStats;
 
@@ -7,16 +8,7 @@ interface userStatsDataProps {
 
 const DailyActiveUsers = ({ userStatsData }: userStatsDataProps) => {
 
-    const safeParse = <T,>(data: string | undefined, fallback: T): T => {
-        if (!data) return fallback;
-        try {
-            return JSON.parse(data);
-        } catch {
-            return fallback;
-        }
-    };
-
-    const dailyUsersRaw = safeParse<
+    const dailyUsersRaw = safeParseJson<
         { date: string; count: number }[]
     >(userStatsData?.dailyActiveUsers, []);
 
