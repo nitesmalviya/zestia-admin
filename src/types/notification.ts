@@ -1,9 +1,4 @@
 export interface AllNotificationResponse {
-    activeDaysDistribution: string;
-    actionRateByType: string;
-    avgActiveDaysPerWeek: string;
-    notifActedOn30d: string;
-    notifSent30d: string;
     adminGetNotificationStats: {
         totalNotifSent: number;
         totalNotifTapped: number;
@@ -19,5 +14,5 @@ export interface AllNotificationResponse {
         previousNotifSent30d: number;
         previousNotifActedOn30d: number;
         previousAvgActiveDays: number;
-    }
+    };
 }

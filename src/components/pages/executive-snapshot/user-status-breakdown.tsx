@@ -25,31 +25,31 @@ const UserStatusBreakdown = ({ userStatsData }: userStatsDataProps) => {
     const statusBreakdown = [
         {
             label: 'Free Users',
-            value: statusRaw.free,
+            value: statusRaw.free.toLocaleString(),
             labelColor: '#6B7280',
             valueColor: '#6B7280',
         },
         {
             label: 'Trial Users',
-            value: statusRaw.trial,
+            value: statusRaw.trial.toLocaleString(),
             labelColor: '#C7A24C',
             valueColor: '#C7A24C',
         },
         {
             label: 'Monthly Paid',
-            value: statusRaw.monthlyPaid,
+            value: statusRaw.monthlyPaid.toLocaleString(),
             labelColor: '#10C456',
             valueColor: '#10C456',
         },
         {
             label: 'Annual Paid',
-            value: statusRaw.annualPaid,
+            value: statusRaw.annualPaid.toLocaleString(),
             labelColor: '#4F46E5',
             valueColor: '#4F46E5',
         },
         {
             label: 'Cancellations (30d)',
-            value: statusRaw.cancellations30d,
+            value: statusRaw.cancellations30d.toLocaleString(),
             labelColor: '#FF5A3C',
             valueColor: '#FF5A3C',
         },

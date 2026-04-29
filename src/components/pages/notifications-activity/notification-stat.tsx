@@ -3,7 +3,7 @@ import { StatCard } from "../dashboard";
 import { StatCardIcon12, StatCardIcon3 } from "@/components/icons/stat-card-icons";
 
 interface notificationDataProps {
-    notificationData: AllNotificationResponse;
+    notificationData: AllNotificationResponse['adminGetNotificationStats'];
 }
 
 const NotificationStat = ({ notificationData }: notificationDataProps) => {

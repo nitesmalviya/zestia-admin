@@ -4,7 +4,7 @@ import { safeParseJson } from "@/utils/parser/json";
 import { formatNumber } from "@/utils/format/number";
 
 interface notificationDataProps {
-    notificationData: AllNotificationResponse;
+    notificationData: AllNotificationResponse['adminGetNotificationStats'];
 }
 
 const NotifiActiveDaysDistribution = ({ notificationData }: notificationDataProps) => {

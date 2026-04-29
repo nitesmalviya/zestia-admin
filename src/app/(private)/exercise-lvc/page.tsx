@@ -2,14 +2,17 @@
 
 import SectionExercise from '@/components/pages/exercise-lvc/index';
 import { getAdminExerciseStatsAction, getAdminLVCStatsAction, getAdminReflectionsAction } from '@/utils/graphql/exercise-lvc/action';
+export const dynamic = 'force-dynamic';
 
 const ExerciseLvcPage = async () => {
 
-  const [lvcRes, exerciseRes, reflectionsRes] = await Promise.all([
+  const results = await Promise.all([
     getAdminLVCStatsAction(),
     getAdminExerciseStatsAction(),
     getAdminReflectionsAction(),
   ]);
+
+  const [lvcRes, exerciseRes, reflectionsRes] = results;
 
   const lvcData = lvcRes?.adminGetLVCStats || null;
   const exerciseData = exerciseRes?.adminGetExerciseStats || null;

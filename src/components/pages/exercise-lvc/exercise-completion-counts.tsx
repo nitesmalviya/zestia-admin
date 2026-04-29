@@ -17,10 +17,10 @@ const ExerciseCompletionCounts = ({ exerciseData }: { exerciseData: AllExerciseR
 
     const max = Math.max(...completionArray.map(item => item.count), 1);
 
-    const getTone = (p: number) => {
+    const getTone = (p: number): 'green' | 'gold' | undefined => {
         if (p >= 70) return 'green';
         if (p >= 40) return 'gold';
-        return 'red';
+        return undefined;
     };
 
     const completionCounts = completionArray.map(item => {
@@ -28,7 +28,7 @@ const ExerciseCompletionCounts = ({ exerciseData }: { exerciseData: AllExerciseR
 
         return {
             label: item.label.replace(/^\d+-/, ''),
-            value: item.count,
+            value: item.count.toLocaleString(),
             progress,
             tone: getTone(progress),
         };

@@ -6,7 +6,7 @@ import NotifiActiveDaysDistribution from './notifi-active-days-distribution';
 import { AllNotificationResponse } from '@/types/notification';
 
 interface SectionNotificationsProps {
-  notificationData: AllNotificationResponse;
+  notificationData: AllNotificationResponse['adminGetNotificationStats'];
 }
 
 const Notifications = ({ notificationData }: SectionNotificationsProps) => {

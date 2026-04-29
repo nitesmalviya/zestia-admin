@@ -3,15 +3,15 @@ import { Panel, PanelHeader, ProgressRow } from "../dashboard";
 import { safeParseJson } from "@/utils/parser/json";
 
 interface NotificationDataProps {
-    notificationData: AllNotificationResponse;
+    notificationData: AllNotificationResponse['adminGetNotificationStats'];
 }
 
 const NotificationRateType = ({ notificationData }: NotificationDataProps) => {
 
-    const getTone = (p: number) => {
+    const getTone = (p: number): 'green' | 'gold' | undefined => {
         if (p >= 22) return 'green';   // top performers
         if (p >= 17) return 'gold';    // mid
-        return 'red';                  // low
+        return undefined;              // low
     };
 
     type ActionRateItem = {
