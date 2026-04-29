@@ -12,7 +12,7 @@ export const getAdminUsersStatsAction = async (): Promise<AllUsersResponse> => {
     return res;
 };
 
-export const getUsersStats = async (): Promise<AllUsersResponse> => {
+export const getUsersStats = async (p0: { offset: number; limit: number; }): Promise<AllUsersResponse> => {
     const res = await fetchGraphQLQuery<AllUsersResponse>(
         ADMIN_GET_USER_STATS_QUERY
     );
@@ -34,3 +34,27 @@ export const getAdminUsersListAction = async (variables: {
     return res;
 };
 
+
+// ─── Lightweight pagination action (client-callable) ─────────────────────────
+
+export async function fetchUsersPage({ limit = 5, offset = 1, search = '' }: { limit?: number; offset?: number; search?: string }): Promise<{ rows: string[][]; totalCount: number; nextToken: string | null }> {
+    const res = await fetchGraphQLQuery<{
+        adminListUsers: { totalCount: number; nextToken: string | null; users: AdminListUser[] };
+    }>(ADMIN_LIST_USERS, { input: { search: search || null, limit, offset } });
+
+    const users: AdminListUser[] = res?.adminListUsers?.users ?? [];
+    const rows: string[][] = users.map((user) => [
+        user.userName ?? '—',
+        user.platform ?? '—',
+        user.subscriptionStatus ?? '—',
+        fmtDate(user.joinedAt),
+        fmtDate(user.lastActiveAt),
+        user.userId ?? '',
+    ]);
+
+    return {
+        rows,
+        totalCount: res?.adminListUsers?.totalCount ?? 0,
+        nextToken: res?.adminListUsers?.nextToken ?? null,
+    };
+}

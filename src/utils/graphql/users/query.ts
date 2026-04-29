@@ -48,3 +48,23 @@ export const ADMIN_GET_USER_LIST_QUERY: DocumentNode = gql`
     }
 }
   `;
+
+export const ADMIN_LIST_USERS: DocumentNode = gql`
+  query AdminListUsers($input: AdminListUsersInput!) {
+    adminListUsers(input: $input) {
+      totalCount
+      nextToken
+      users {
+        userId
+        userName
+        email
+        platform
+        subscriptionStatus
+        planType
+        joinedAt
+        lastActiveAt
+        couponCode
+      }
+    }
+  }
+`;

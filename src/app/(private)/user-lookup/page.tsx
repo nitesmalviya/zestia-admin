@@ -1,9 +1,13 @@
-'use server';
+
 
 import SectionUserLookup from '@/components/pages/user-lookup/index';
-import { getUserLookupData } from '@/utils/mock-data';
+import { getUsersStats } from '@/utils/graphql/users/action';
+export const dynamic = 'force-dynamic';
 
 export default async function UserLookupPage() {
-  const data = await getUserLookupData();
+  const data = await getUsersStats({ offset: 1, limit: 10 });
   return <SectionUserLookup data={data} />;
 }
+
+
+

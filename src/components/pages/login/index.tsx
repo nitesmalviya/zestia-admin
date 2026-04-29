@@ -59,7 +59,7 @@ export default function SectionLogin() {
   return (
     <section className="login-root" style={{ minHeight: '100vh', display: 'grid', gridTemplateColumns: '60% 40%', background: '#fff' }}>
       <div className="login-left" style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(165deg, #051B16 0%, #0A3A1A 45%, #046307 100%)' }}>
-        <Image className="login-logo" src="/logo (2).png" alt="Zestia" width={170} height={66} priority style={{ position: 'absolute', top: 44, left: 58, width: 'auto', height: 'auto' }} />
+        <Image className="login-logo" src="/logo.png" alt="Zestia" width={170} height={66} priority style={{ position: 'absolute', top: 44, left: 58, width: 'auto', height: 'auto' }} />
         <div className="login-heading-wrap" style={{ position: 'absolute', top: 197, left: 60, zIndex: 2 }}>
           <h2 style={{ margin: 0, color: '#FFFFFF', fontSize: 64 / 1.4, lineHeight: '100%', fontWeight: 600, fontFamily: "'IvyMode', 'Cormorant Garamond', serif" }}>
             Creating Your

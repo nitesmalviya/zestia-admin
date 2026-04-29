@@ -67,7 +67,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: { sidebarOpen: boolean; setSid
       >
         {sidebarOpen ? (
           <Image
-            src="/logo (2).png"
+            src="/logo.png"
             alt="Zestia"
             width={102}
             height={38}

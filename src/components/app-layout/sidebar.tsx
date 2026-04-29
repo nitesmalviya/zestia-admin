@@ -59,7 +59,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: Readonly<{ sidebarOpen: boolea
         }}
       >
         <Image
-          src={sidebarOpen ? "/logo (2).png" : "/logo-bg.png"}
+          src={sidebarOpen ? "/logo.png" : "/logo-bg.png"}
           alt="Zestia"
           width={sidebarOpen ? 102 : 28}
           height={sidebarOpen ? 38 : 28}
