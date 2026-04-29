@@ -4,6 +4,18 @@ import { AllExerciseResponse } from "@/types/exercise-lvc";
 
 const EngagementHealth = ({ exerciseData }: { exerciseData: AllExerciseResponse | null }) => {
 
+    if (!exerciseData) {
+        return (
+            <Panel>
+                <PanelHeader
+                    title="Engagement Health"
+                    subtitle="Exercise cadence signals"
+                />
+                <div style={{ padding: 20 }}>No engagement data available</div>
+            </Panel>
+        )
+    }
+
     const avgDays = (exerciseData?.avgDaysBetweenExercises * 7).toFixed(1);
     const engagementHealth = [
         {

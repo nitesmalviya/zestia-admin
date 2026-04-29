@@ -6,6 +6,18 @@ import { AllReflectionsResponse } from "@/types/exercise-lvc";
 
 const ReflectionsCard = ({ reflectionsData }: { reflectionsData: AllReflectionsResponse | null }) => {
 
+    if (!reflectionsData) {
+        return (
+            <Panel>
+                <PanelHeader
+                    title="Reflections & Saved Entries"
+                    subtitle="Per exercise - Reflections / Saved"
+                />
+                <div style={{ padding: 20 }}>No reflections data available</div>
+            </Panel>
+        )
+    }
+
     const reflectionRaw = safeParseJson<
         { interventionId: string; total: number; saved: number }[]
     >(

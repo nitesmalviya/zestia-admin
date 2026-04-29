@@ -4,6 +4,8 @@ import { safeParseJson } from "@/utils/parser/json";
 
 const AnonymousLearnings = ({ reflectionsData }: { reflectionsData: AllReflectionsResponse | null }) => {
 
+
+
     const reflectionRaw = safeParseJson<
         { interventionId: string; learned: string; checkInAt: string }[]
     >(reflectionsData?.reflections, []);
@@ -19,23 +21,28 @@ const AnonymousLearnings = ({ reflectionsData }: { reflectionsData: AllReflectio
                 subtitle="Running list from user reflections"
             />
 
-            {anonymousLearnings.map((quote: string, index: number) => (
-                <p
-                    key={quote}
-                    style={{
-                        margin: 0,
-                        padding: '14px 0',
-                        borderTop: index ? '1px solid #EFE7D7' : 'none',
-                        color: '#D6A944',
-                        fontFamily: "'Montserrat', sans-serif",
-                        fontWeight: 600,
-                        fontStyle: 'italic',
-                        fontSize: 30 / 2.1,
-                    }}
-                >
-                    {quote}
-                </p>
-            ))}
+            {
+                anonymousLearnings.length === 0 ? (
+                    <div style={{ padding: 20 }}>No reflections data available</div>
+                ) : (
+                    anonymousLearnings.map((quote: string, index: number) => (
+                        <p
+                            key={quote}
+                            style={{
+                                margin: 0,
+                                padding: '14px 0',
+                                borderTop: index ? '1px solid #EFE7D7' : 'none',
+                                color: '#D6A944',
+                                fontFamily: "'Montserrat', sans-serif",
+                                fontWeight: 600,
+                                fontStyle: 'italic',
+                                fontSize: 30 / 2.1,
+                            }}
+                        >
+                            {quote}
+                        </p>
+                    )))
+            }
         </Panel>
     )
 }

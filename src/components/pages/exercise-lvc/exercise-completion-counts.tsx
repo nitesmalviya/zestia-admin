@@ -5,6 +5,18 @@ import { AllExerciseResponse } from "@/types/exercise-lvc";
 
 const ExerciseCompletionCounts = ({ exerciseData }: { exerciseData: AllExerciseResponse | null }) => {
 
+    if (!exerciseData) {
+        return (
+            <Panel>
+                <PanelHeader
+                    title="Exercise Completion Counts"
+                    subtitle="All time, by exercise name"
+                />
+                <div style={{ padding: 20 }}>No data available</div>
+            </Panel>
+        )
+    }
+
     const completionRaw = safeParseJson<Record<string, number>>(
         exerciseData?.completionCountByExercise,
         {}
